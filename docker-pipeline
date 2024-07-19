@@ -34,6 +34,21 @@ pipeline {
         }
         
     }
-    
+        post {
+        success {
+            emailext (
+                      subject: 'Success: Jenkins Pipeline Status',
+                      body: 'The Jenkins pipeline has succeeded.',
+                      to: 'devinder@ditinustechnology.com'
+                      )
+        }
+        failure {
+            emailext (
+                      subject: 'Failure: Jenkins Pipeline Status',
+                      body: 'The Jenkins pipeline has failed.',
+                      to: 'devinder@ditinustechnology.com'
+                      )
+        }
+    }
 }
 SV7FOH*k!hn*
